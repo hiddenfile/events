@@ -1,0 +1,18 @@
+#box
+  .block(id="block-login")
+    %h2= t(:sign_in)
+    .content.login(style="padding-top:15px;")
+      = form_for resource, :url => session_path(resource_name), :html => {:class => [:form, :login]} do |form|
+        .group.wat-cf
+          .left
+            = form.label :email, :class => [:label, :right]
+          .right
+            = form.text_field :email, :class => :text_field
+        .group.wat-cf
+          .left
+            = form.label :password, :class => [:label, :right]
+          .right
+            = form.password_field :password, :class => :text_field
+        .group.navform.wat-cf(style='padding-left:115px;')
+          = form.submit "Sign in", :class => :button, :disable_with => "Please wait"
+          = link_to "Sign up", new_registration_path(resource_name)
