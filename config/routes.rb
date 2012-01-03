@@ -1,4 +1,5 @@
 Eventsys::Application.routes.draw do
+  resources :events, :only => [:index, :show]
   resources :comments, :only => :index
 
   resources :categories, :only => :index do

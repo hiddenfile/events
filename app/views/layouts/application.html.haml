@@ -23,7 +23,7 @@
             %li
               = link_to "Comments", comments_path
             %li
-              = link_to "Events", "#"
+              = link_to "Events", events_path
 
       #wrapper.wat-cf
         .flash
@@ -35,6 +35,6 @@
           #footer
             .block
               %p
-                Copyright &copy; #{Time.now.year} Web App.
+                Copyright &copy; #{Time.now.year} Event system.
         #sidebar
           = render(:partial => 'shared/sidebar')
