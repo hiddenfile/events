@@ -1,0 +1,17 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "Back", category_pictures_path(@picture.category.title)
+      %li.active= link_to "Current", category_picture_path
+  .content
+    .inner
+      .content
+        .inner
+          %br
+          %center
+            = image_tag(@picture.image)
+            .clear
+            %br
+            = link_to "Like", like_path(@picture.id), :class => "button", :style => "float: none; display:inline"
+
+

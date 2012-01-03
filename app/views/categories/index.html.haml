@@ -1,8 +1,7 @@
 .block
   .secondary-navigation
     %ul.wat-cf
-      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", categories_path
-      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_category_path
+      %li.first.active= link_to "Current", categories_path
   .content
     %h2.title
       = t("web-app-theme.all", :default => "All")
@@ -20,14 +19,11 @@
             %td
               = category.id
             %td
-              = link_to category.title, category_path(category)
+              = category.title
             %td
-              = category.created_at
+              = category.created_at.to_s(:short)
             %td.last
-              = link_to "#{t("web-app-theme.show", :default => "Show")}", category_path(category)
-              |
-              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_category_path(category)} |
-              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", category_path(category), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+              = link_to "#{t("web-app-theme.show", :default => "Show")}", category_pictures_path(category.title)
       .actions-bar.wat-cf
         .actions
-- content_for :sidebar, render(:partial => 'sidebar')
+

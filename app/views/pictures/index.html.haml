@@ -1,0 +1,18 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "Back", categories_path
+      %li.active= link_to "Current", category_pictures_path
+  .content
+    .inner
+      .content
+        .inner
+          %br
+          %center
+            - @pictures.each do |pic|
+              = link_to category_picture_path(pic.category.title, pic.id) do
+                = image_tag pic.image(:thumb)
+      = will_paginate @pictures
+      .clear
+
+

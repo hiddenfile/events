@@ -1,6 +1,10 @@
 Eventsys::Application.routes.draw do
-  resources :categories
-  devise_for :users
+  resources :categories, :only => :index do
+    resources :pictures, :only => [:index,:show], :path => ""
+  end
 
-   root :to => 'categories#index'
+  devise_for :users
+  get '/pictures', :to => 'pictures#all_pic', :as => :all_pic
+  get '/like/:id', :to => 'pictures#like', :as => :like
+  root :to => redirect('/categories')
 end

@@ -49,4 +49,5 @@ module Eventsys
       Devise::RegistrationsController.layout "devise"
     end
   end
+  WillPaginate.per_page = 5
 end

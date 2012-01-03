@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Web App
+    %title Event system
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = csrf_meta_tag
@@ -17,9 +17,9 @@
         #main-navigation
           %ul.wat-cf
             %li
-              = link_to "Categories", "#"
+              = link_to "Categories", categories_path
             %li
-              = link_to "Pictures", "#"
+              = link_to "Pictures", all_pic_path
             %li
               = link_to "Comments", "#"
             %li
@@ -37,4 +37,4 @@
               %p
                 Copyright &copy; #{Time.now.year} Web App.
         #sidebar
-          = yield :sidebar
+          = render(:partial => 'shared/sidebar')
