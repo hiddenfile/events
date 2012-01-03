@@ -8,10 +8,13 @@
       .content
         .inner
           %br
-          %center
-            - @pictures.each do |pic|
-              = link_to category_picture_path(pic.category.title, pic.id) do
-                = image_tag pic.image(:thumb)
+          - @pictures.each do |pic|
+            = link_to category_picture_path(pic.category.title, pic.id) do
+              %div{:style => "float:left;margin-right: 30px"}
+                %p= "Like: #{pic.likes_count.to_i}"
+                %p= "Comments: #{pic.comments_count.to_i}"
+                %p= image_tag pic.image(:thumb)
+          .clear
       = will_paginate @pictures
       .clear
 

@@ -3,4 +3,4 @@
   .content
     %center
       %br
-      = image_tag(Picture.order("likes_count DESC").first.image(:medium))
+      = image_tag(@best_picture)

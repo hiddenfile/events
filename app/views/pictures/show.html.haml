@@ -13,5 +13,27 @@
             .clear
             %br
             = link_to "Like", like_path(@picture.id), :class => "button", :style => "float: none; display:inline"
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "Comments", "#"
+  .content
+    .inner
+      = form_for :comment, :url => category_picture_comments_path(@picture.category.title, @picture.id) do |f|
+        %p
+          = f.text_area :message, :style => "width: 100%; height:100px"
+        %p
+          = f.submit "Save"
+  .content
+    .inner
+      - @picture.comments.includes(:user).each do |comment|
+        #footer
+          .block{:style => "background-color: gray;"}
+            %p{:style => "background-color: gray;"}
+              %strong
+                = "#{comment.user.email} said:"
+              = comment.message
+
+
 
 
